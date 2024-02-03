@@ -13,21 +13,16 @@ class FlightController extends Controller
      */
     public function index()
     {
-        //
+        $flights = Flight::with('user')->get();
+
+        return view('flights.list', ['flights' => $flights]);
+
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreFlightRequest $request)
     {
         //
     }
@@ -56,11 +51,4 @@ class FlightController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Flight $flight)
-    {
-        //
-    }
 }
